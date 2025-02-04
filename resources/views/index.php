@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    Hello!
+    INdex!!!
+
+    <ul>
+        <li><a href="">Inventory</a></li>
+        <li><a href="">Login</a></li>
+        <li><a href=""></a></li>
+    </ul>
 </body>
 </html>

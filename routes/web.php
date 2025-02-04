@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('login', "App\Http\Controllers\LoginController@index");
-Route::get('welcome', "App\Http\Controllers\Welcome@index");
-
+Route::get('/login', "App\Http\Controllers\LoginController@index");
+Route::get('/welcome', "App\Http\Controllers\Welcome@index");
+Route::get('/inventory', "App\Http\Controllers\inventory@index");
 
