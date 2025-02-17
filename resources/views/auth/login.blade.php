@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  
-    <!-- <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet"> -->
+    @vite('resources/css/app.css')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
+<body class="font-poppins">
 
-<div class="container">
-    <div class="card">
+<div class="container w-[90%] mx-auto mt-10">
+    <h1 class="text-5xl">hello</h1>
+    <div class="card border border-black border-test bg-test shadow p-5">
         <form method="POST" action='/login' >
                 @csrf()
             <div class="form-group">
@@ -27,17 +30,6 @@
         </form>
     </div>
 
-<!-- <div class='wrap'>
-  Login
-    <form>
-        <input type='text' id='username' placeholder='Username'>
-        <input type='password' id='password' placeholder='Password'>
-    </form>
-  <button class='login'>LOG IN</button>
-</div> -->
-
-
 </div>
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
