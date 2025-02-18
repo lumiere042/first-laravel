@@ -13,18 +13,21 @@
 <body class="font-poppins">
 
 <div class="container w-[90%] mx-auto mt-10">
-    <div class="card border border-black border-test  shadow p-5">
+    <div class="card border border-black border-light-gray shadow p-5 rounded-lg max-w-[500px]">
         <form method="POST" action='/login' >
                 @csrf()
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
+            <h2 class="text-2xl font-extralight py-4">Welcome !</h2>
+            <h1 class="text-3xl font-regular py-2">Sign in to</h2>
+
+            <div class="">
+                <label class="block "for="exampleInputEmail1">Email address</label>
+                <input type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                
                 <label for="InputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                
             </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
