@@ -13,8 +13,7 @@
 <body class="font-poppins">
 
 <div class="container w-[90%] mx-auto mt-10">
-    <h1 class="text-5xl">hello</h1>
-    <div class="card border border-black border-test bg-test shadow p-5">
+    <div class="card border border-black border-test  shadow p-5">
         <form method="POST" action='/login' >
                 @csrf()
             <div class="form-group">
