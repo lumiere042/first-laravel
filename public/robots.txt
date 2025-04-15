@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+@extends('templates.main')
+ 
+ @section('title', 'Categories List')

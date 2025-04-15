@@ -9,13 +9,26 @@
     <title>Document</title>
 </head>
   <body class="p-6 bg-gray-100 ">
-    
+
 
   <div class="block min-h-screen bg-white" id="inventory">
     <div class="absolute top-0 left-0 h-full w-1/5 bg-cover bg-center" style="background-image: url('{{ asset('img/lines-bg.jpg') }}');"></div>
 
     <div class="relative z-10 mx-auto w-3/5 p-8">
-          <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+      <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+
+      @if(session('success'))
+          <div style="color: green; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+              {{ session('success') }}
+          </div>
+      @endif
+
+      <!-- Error Message -->
+      @if(session('error'))
+          <div style="color: red; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+              {{ session('error') }}
+          </div>
+      @endif
       <h2 class="text-xl font-bold mb-4">Inventory</h2>
       <button class="mb-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700" onclick="openModal()">
       
@@ -31,21 +44,26 @@
       <div
         class="grid grid-cols-5 gap-4 p-4 border-b border-gray-300 items-center"
       >
-        <div>Electronics</div>
-        <div>Smartphone</div>
-        <div>10</div>
-        <div>$500</div>
-        <div class="space-x-2">
-          <button
-            class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
-          >
-            Edit
-          </button>
-          <button
-            class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-          >
-            Delete
-          </button>
+
+          @foreach($items as $item)
+            <div class="">{{ $item->category }}</div>
+            <div class="">{{ $item->name }}</div>
+            <div class="">{{ $item->quantity }}</div>
+            <div class="">{{ $item->price }}</div>
+            <div class="">
+                          <button
+              class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+            >
+              Edit
+            </button>
+            <button
+              class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Delete
+            </button> 
+            </div>
+
+          @endforeach
         </div>
       </div>
     </div>
@@ -60,21 +78,22 @@
         <button class="text-gray-500 hover:text-gray-700" onclick="closeModal(event)">&times;</button>
       </div>
       
-      <form>
+      <form method="POST" action="{{ route('items.store') }}">
+        @csrf
         <label class="block mb-2 text-sm">Category</label>
-        <input type="text" class="w-full p-2 border rounded mb-3" placeholder="Enter category">
+        <input type="text" class="w-full p-2 border rounded mb-3" placeholder="Enter category" name="category">
         
         <label class="block mb-2 text-sm">Item Name</label>
-        <input type="text" class="w-full p-2 border rounded mb-3" placeholder="Enter item name">
+        <input type="text" class="w-full p-2 border rounded mb-3" placeholder="Enter item name" name="name">
         
         <label class="block mb-2 text-sm">Quantity</label>
-        <input type="number" class="w-full p-2 border rounded mb-3" placeholder="Enter quantity">
+        <input type="number" class="w-full p-2 border rounded mb-3" placeholder="Enter quantity" name="quantity">
         
         <label class="block mb-2 text-sm">Price</label>
-        <input type="number" class="w-full p-2 border rounded mb-3" placeholder="Enter price">
+        <input type="number" class="w-full p-2 border rounded mb-3" placeholder="Enter price" name="price">
         
         <div class="flex justify-end space-x-2 mt-4">
-          <button type="button" class="bg-gray-300 px-4 py-2 rounded" onclick="closeModal(event)">Cancel</button>
+          <button type="button" class="bg-gray-300 px-4 py-2 rounded mr-4" onclick="closeModal(event)">Cancel</button>
           <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Add</button>
         </div>
       </form>
@@ -96,24 +115,3 @@
   </script>
 
 </html>
-
-.highlight {
-    position: relative;
-    display: inline-block;
-    padding: 5px 15px;
-    z-index: 1;
-}
-
-.highlight::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f4d44d;
-    transform: skewX(-5deg);
-    z-index: -1;
-}
-
-<span style="background-color: #EBD96B; padding: 5px 15px; display: inline-block;">UNIQUENESS</span> 

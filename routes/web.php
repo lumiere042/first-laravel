@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddItem;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,5 @@ Route::get('/', function () {
 });
 
 Route::post('/login', "App\Http\Controllers\LoginController@auth");
-
-Route::get('/welcome', "App\Http\Controllers\Welcome@index");
 Route::get('/inventory', "App\Http\Controllers\inventory@index");
-Route::get('/hello', "App\Http\Controllers\HelloController@index");
-
+Route::post('/items', [AddItem::class, 'store'])->name('items.store');

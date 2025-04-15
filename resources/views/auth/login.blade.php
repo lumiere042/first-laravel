@@ -40,18 +40,3 @@
 
 </body>
 </html>
-
-<body>
-    <div class="login-container text-center">
-        <h3 class="mb-3">Login</h3>
-        <form method="POST" action='/login' > 
-                @csrf()
-                <input type="text" name="username_or_email" class="form-control" placeholder="Username or Email" required>
-            </div>
-            <div class="mb-3">
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
-    </div>
-</body>
