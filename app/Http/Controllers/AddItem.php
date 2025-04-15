@@ -36,4 +36,11 @@ class AddItem extends Controller
     }
 }       
 
+
+    public function update(Request $request, $id)
+    {
+        $item = Item::findOrFail($id);
+        $item->update($request->only(['name', 'category', 'quantity', 'price']));
+    return back();
+}
 }

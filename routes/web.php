@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::post('/login', "App\Http\Controllers\LoginController@auth");
 Route::get('/inventory', "App\Http\Controllers\inventory@index");
 Route::post('/items', [AddItem::class, 'store'])->name('items.store');
+Route::put('/items/{id}', [AddItem::class, 'update'])->name('items.update');

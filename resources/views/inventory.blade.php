@@ -53,6 +53,7 @@
             <div class="">
                           <button
               class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+              onclick="openUpdateModal({{ $item->id }})"
             >
               Edit
             </button>
@@ -63,6 +64,21 @@
             </button> 
             </div>
 
+            
+
+
+            <div id="modal-{{ $item->id }}" style="display: none;">
+              <form method="POST" action="{{ route('items.update', $item->id) }}">
+                  @csrf
+                  @method('PUT')
+                  <input type="text" name="name" value="{{ $item->name }}">
+                  <input type="text" name="category" value="{{ $item->category }}">
+                  <input type="number" name="quantity" value="{{ $item->quantity }}">
+                  <input type="number" name="price" value="{{ $item->price }}" step="0.01">
+                  <button type="submit">Update</button>
+                  <button type="button" onclick="closeUpdateModal({{ $item->id }})">Cancel</button>
+              </form>
+          </div>
           @endforeach
         </div>
       </div>
@@ -112,6 +128,14 @@
       document.getElementById('inventory').classList.remove('hidden');
 
     }
+
+    function openUpdateModal(id) {
+    document.getElementById('modal-' + id).style.display = 'block';
+}
+
+function closeUpdateModal(id) {
+    document.getElementById('modal-' + id).style.display = 'none';
+}
   </script>
 
 </html>
